@@ -13,7 +13,12 @@ Framework: Flutter (Dart)
 UI Design: Material Design / Custom Widgets
 State Management: Not implemented (UI-only)
 Navigation: GoRouter / Navigator 2.0 (for screen transitions)
+![WhatsApp Image 2025-03-03 at 11 43 16 AM (2)](https://github.com/user-attachments/assets/a32ca575-674e-478e-88b5-d3c5ef801058)
+
+
+
 🔧 Installation & Setup
+
 Prerequisites
 Flutter SDK installed (flutter --version to check)
 Android Studio or VS Code
