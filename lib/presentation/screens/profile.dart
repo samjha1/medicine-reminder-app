@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
           children: [
             Text("Take Care!",
                 style: TextStyle(fontSize: 16, color: Colors.grey)),
-            Text("Richa Bose",
+            Text("Shivam",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           ],
         ),
