@@ -7,7 +7,7 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -16,20 +16,20 @@ class ProfileScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildProfileHeader(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildSettingsSection(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildDeviceSection(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildCaretakersSection(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildDoctorSection(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildFooterSection(),
           ],
         ),
@@ -40,14 +40,14 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildProfileHeader() {
     return Row(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           radius: 40,
           backgroundImage: AssetImage('assets/images/profile.jpg'),
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             Text("Take Care!",
                 style: TextStyle(fontSize: 16, color: Colors.grey)),
             Text("Shivam",
@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Settings",
+        const Text("Settings",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         _buildSettingsItem(Icons.notifications, "Notification",
             "Check your medicine notification"),
@@ -75,35 +75,25 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildSettingsItem(IconData icon, String title, String subtitle) {
     return ListTile(
-      leading: Icon(icon, color: Colors.grey),
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(subtitle, style: TextStyle(color: Colors.grey)),
+      leading: Icon(icon, color: Colors.grey.shade700),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+      subtitle: Text(subtitle, style: const TextStyle(color: Colors.grey)),
       onTap: () {},
     );
   }
 
   Widget _buildDeviceSection() {
-    return Container(
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.blue.shade50,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildSettingsItem(Icons.wifi, "Connect", "Bluetooth, Wi-Fi"),
-          SizedBox(height: 10),
-          _buildSettingsItem(
-              Icons.volume_up, "Sound Option", "Ring, Silent, Vibrate"),
-        ],
-      ),
-    );
+    return _buildCard([
+      _buildSettingsItem(Icons.wifi, "Connect", "Bluetooth, Wi-Fi"),
+      _buildSettingsItem(
+          Icons.volume_up, "Sound Option", "Ring, Silent, Vibrate"),
+    ]);
   }
 
   Widget _buildCaretakersSection() {
     return Container(
-      padding: EdgeInsets.all(16),
+      width: double.infinity, // Makes it take full screen width
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
         borderRadius: BorderRadius.circular(10),
@@ -111,28 +101,29 @@ class ProfileScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Caretakers: 03", style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 10),
-          Row(
+          const Text(
+            "Caretakers: 03",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Wrap(
+            spacing: 10,
             children: [
               _buildCaretakerAvatar('assets/images/profile.jpg'),
               _buildCaretakerAvatar('assets/images/profile.jpg'),
               _buildCaretakerAvatar('assets/images/profile.jpg'),
               _buildAddCaretakerButton(),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 
   Widget _buildCaretakerAvatar(String imagePath) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: CircleAvatar(
-        radius: 20,
-        backgroundImage: AssetImage(imagePath),
-      ),
+    return CircleAvatar(
+      radius: 20,
+      backgroundImage: AssetImage(imagePath),
     );
   }
 
@@ -140,27 +131,28 @@ class ProfileScreen extends StatelessWidget {
     return CircleAvatar(
       radius: 20,
       backgroundColor: Colors.grey.shade300,
-      child: Icon(Icons.add, color: Colors.white),
+      child: const Icon(Icons.add, color: Colors.white),
     );
   }
 
   Widget _buildDoctorSection() {
     return Container(
-      padding: EdgeInsets.fromLTRB(120, 16, 120, 16),
+      width: double.infinity, // Expands the container width
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         children: [
-          Icon(Icons.add_circle, color: Colors.blue, size: 40),
-          SizedBox(height: 5),
-          Text("Add Your Doctor",
+          const Icon(Icons.add_circle, color: Colors.blue, size: 40),
+          const SizedBox(height: 5),
+          const Text("Add Your Doctor",
               style: TextStyle(fontWeight: FontWeight.bold)),
-          Text("Or use ", style: TextStyle(color: Colors.grey)),
+          const Text("Or use ", style: TextStyle(color: Colors.grey)),
           GestureDetector(
             onTap: () {},
-            child: Text("invite link",
+            child: const Text("invite link",
                 style: TextStyle(
                     color: Colors.orange, fontWeight: FontWeight.bold)),
           ),
@@ -176,12 +168,16 @@ class ProfileScreen extends StatelessWidget {
         _buildFooterItem("Terms of Use"),
         _buildFooterItem("Rate Us"),
         _buildFooterItem("Share"),
-        SizedBox(height: 20),
-        Center(
+        const SizedBox(height: 20),
+        SizedBox(
+          width: double.infinity, // Expands the button width
           child: OutlinedButton(
             onPressed: () {},
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 120),
+            style: OutlinedButton.styleFrom(
+              side: const BorderSide(color: Colors.black),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 12),
               child: Text("Log Out", style: TextStyle(color: Colors.black)),
             ),
           ),
@@ -193,7 +189,21 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildFooterItem(String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Text(title, style: TextStyle(fontSize: 16)),
+      child: Text(title, style: const TextStyle(fontSize: 16)),
+    );
+  }
+
+  Widget _buildCard(List<Widget> children) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
+      ),
     );
   }
 }

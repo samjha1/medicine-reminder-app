@@ -6,13 +6,9 @@ void showDeviceNotConnectedDialog(BuildContext context) {
     builder: (context) {
       return Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          height: 400,
+        backgroundColor: Colors.white,
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
