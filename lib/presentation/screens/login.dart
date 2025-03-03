@@ -158,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                   ),
-                  hintText: 'sam@123',
+                  hintText: '••••••••••••',
                   errorText: _isPasswordError ? 'Password don\'t match' : null,
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey.shade300),
